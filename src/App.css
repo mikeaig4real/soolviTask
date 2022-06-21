@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.all {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.additem {
+    width: 90vw;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.234);
+    padding: 2vh 0 2vh 0;
+}
+
+.additem label {
+    margin-right: 1vw;
+}
+
+.additem input {
+    outline-color: blue;
+}
+
+.assembly {
+    display: flex;
+    width: 90vw;
+    flex-direction: row;
+    margin-top: 3vh;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.assembly div {
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.assembly button {
+    width: fit-content;
+    text-align: center;
+    padding: 0 4px ;
+    border-radius: 5px;
+    margin: 3px 0;
+}
