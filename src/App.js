@@ -12,7 +12,6 @@ function App() {
     showTaskModal,
     login,
     isLoading,
-    getAllTasks,
   } = useGlobalContext();
   
   // login once the app loads
