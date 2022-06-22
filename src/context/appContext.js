@@ -176,7 +176,7 @@ const AppProvider = ({ children }) => {
             return;
         };
         // edit task
-        let taskDate = new Date(task.startDate);
+        let taskDate = new Date(state.startDate);
         let taskTime = taskDate.getHours() * 3600 + taskDate.getMinutes() * 60;
         setStartDate(taskDate);
         setTask({...task, task_date: taskDate.toISOString().split('T')[0], task_time: taskTime});
