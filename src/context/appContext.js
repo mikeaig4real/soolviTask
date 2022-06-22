@@ -152,9 +152,9 @@ const AppProvider = ({ children }) => {
             setTask({
                 assigned_user: state.assignedUsers[0].name,
                 // convert startDate to 'YYYY-MM-DD' iso format
-                task_date: state.startDate.toISOString().split('T')[0],
+                task_date: new Date().toISOString().split('T')[0],
                 // convert startDate to seconds format
-                task_time: state.startDate.getHours() * 3600 + state.startDate.getMinutes() * 60,
+                task_time: new Date().getHours() * 3600 + new Date().getMinutes() * 60,
                 is_completed: 0,
                 time_zone: state?.allTasks[0]?.time_zone || 19800,
                 task_msg: '',
