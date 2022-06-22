@@ -12,6 +12,7 @@ import {
     SET_USER_ID,
     SET_COMPANY_ID,
     SET_LOADING,
+    SET_ASSIGNED_USERS,
 } from './actions';
 
 // import { initialState } from './appContext';
@@ -104,6 +105,12 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 isLoading: payload,
+            };
+        case SET_ASSIGNED_USERS:
+            return {
+                ...state,
+                // isLoading: true,
+                assignedUsers: payload,
             };
         default:
             return state;

@@ -18,13 +18,15 @@ export const loginReqUrlOpts = async (email, password) => {
     return data;
 };
 
-export const assignedUserReqUrlOpts = async (company_id) => {
+export const assignedUserReqUrlOpts = async (access_token, company_id) => {
     const url = `${API_ENDPOINT}/team?product=outreach&company_id=${company_id}`;
     const options = {
         method: 'GET',
-        body: JSON.stringify({
-            company_id,
-        }),
+        headers: {
+            'Authorization': 'Bearer ' + access_token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
     };
     const response = await fetch(url, options);
     const data = await response.json();

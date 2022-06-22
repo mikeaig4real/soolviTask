@@ -6,13 +6,13 @@ import DatePicker from "react-datepicker";
 
 const TaskForm = () => {
     const {
-        allTasks,
         setTask,
         startDate,
         setStartDate,
         setShowTaskModal,
         task,
         saveTask,
+        assignedUsers,
     } = useGlobalContext();
     return (
         <form className='tasks__form' onSubmit={(event) => saveTask(event)}>
@@ -54,8 +54,8 @@ const TaskForm = () => {
                     onChange={(e) => setTask({ ...task, assigned_user: e.target.value })}
                 >
                     {
-                        allTasks.map((task, index) => {
-                            return <option key={index} value={task.assigned_user}>{task.assigned_user}</option>
+                        assignedUsers.map((user, index) => {
+                            return <option key={index} value={user.name}>{user.name}</option>
                         })
                     }
                 </select>

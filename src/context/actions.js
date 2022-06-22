@@ -11,3 +11,4 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const SET_USER_ID = 'SET_USER_ID';
 export const SET_COMPANY_ID = 'SET_COMPANY_ID';
 export const SET_LOADING = 'SET_LOADING';
+export const SET_ASSIGNED_USERS = 'SET_ASSIGNED_USERS';

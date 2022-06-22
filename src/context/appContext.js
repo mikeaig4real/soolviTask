@@ -11,6 +11,7 @@ import {
     SET_COMPANY_ID,
     SET_LOADING,
     SET_USER_ID,
+    SET_ASSIGNED_USERS
 } from './actions';
 
 import {
@@ -42,6 +43,7 @@ const initialState = {
     password: '12345678',
     loginData: null,
     isLoggedIn: false,
+    assignedUsers: [],
 }
 
 const AppContext = React.createContext();
@@ -101,6 +103,13 @@ const AppProvider = ({ children }) => {
         });
     };
 
+    const setAssignedUsers = (users) => { 
+        dispatch({
+            type: SET_ASSIGNED_USERS,
+            payload: users,
+        });
+    }
+
     const login = async () => {
         const user = await loginReqUrlOpts(state.email, state.password)
         if (user.status === 'error') {
@@ -113,9 +122,15 @@ const AppProvider = ({ children }) => {
             setLoading(false);
             return alert(tasks.message);
         }
+        const assignedUsers = await assignedUserReqUrlOpts(token, company_id);
+        if (assignedUsers.status === 'error') {
+            setLoading(false);
+            return alert(assignedUsers.message);
+        };
         setToken(token);
         setCompanyId(company_id);
         setUserId(user_id);
+        setAssignedUsers(assignedUsers.results.data);
         setTasks(tasks.results);
         setLoading(false);
     };
