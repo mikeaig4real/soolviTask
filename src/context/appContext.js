@@ -150,7 +150,7 @@ const AppProvider = ({ children }) => {
         if (id === null) {
             // create new task
             setTask({
-                assigned_user: state.allTasks[0].assigned_user,
+                assigned_user: state.assignedUsers[0].name,
                 // convert startDate to 'YYYY-MM-DD' iso format
                 task_date: state.startDate.toISOString().split('T')[0],
                 // convert startDate to seconds format
