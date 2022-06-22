@@ -30,14 +30,20 @@ const TaskForm = () => {
                     <label htmlFor='task_date'>Date</label>
                     <DatePicker
                         selected={startDate}
-                        onChange={(date) => setStartDate(date)}
+                        onChange={(date) => {
+                            setStartDate(date)
+                            setTask({ ...task, task_date: date.toISOString().split('T')[0], task_time: date.getHours() * 3600 + date.getMinutes() * 60 })
+                        }}
                     />
                 </div>
                 <div className='tasks__form_item'>
                     <label htmlFor='task_time'>Time</label>
                     <DatePicker
                         selected={startDate}
-                        onChange={(date) => setStartDate(date)}
+                        onChange={(date) => {
+                            setStartDate(date)
+                            setTask({ ...task, task_date: date.toISOString().split('T')[0], task_time: date.getHours() * 3600 + date.getMinutes() * 60 })
+                        }}
                         showTimeSelect
                         showTimeSelectOnly
                         timeIntervals={30}

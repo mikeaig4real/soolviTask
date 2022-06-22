@@ -176,13 +176,11 @@ const AppProvider = ({ children }) => {
             return;
         };
         // edit task
-        let taskDate = new Date(task.task_date);
-        let taskHour = task.task_time / 3600;
-        let taskMinute = task.task_time % 3600 / 60;
-        taskDate.setHours(taskHour);
-        taskDate.setMinutes(taskMinute);
+        let taskDate = new Date(state.startDate);
+        let taskTime = taskDate.getHours() * 3600 + taskDate.getMinutes() * 60;
         setStartDate(taskDate);
-        setTask(task);
+        setTask({...task, task_date: taskDate.toISOString().split('T')[0], task_time: taskTime});
+        console.log(task);
         setShowTaskModal(true);
     };
     const saveTask = async (e) => {
