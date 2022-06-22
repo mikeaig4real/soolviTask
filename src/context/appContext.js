@@ -156,7 +156,7 @@ const AppProvider = ({ children }) => {
                 // convert startDate to seconds format
                 task_time: state.startDate.getHours() * 3600 + state.startDate.getMinutes() * 60,
                 is_completed: 0,
-                time_zone: state.allTasks[0].time_zone,
+                time_zone: state?.allTasks[0]?.time_zone || 19800,
                 task_msg: '',
             });
             setShowTaskModal(true);
