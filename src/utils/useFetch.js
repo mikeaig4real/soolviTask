@@ -31,7 +31,7 @@ export const assignedUserReqUrlOpts = async (company_id) => {
     return data;
 };
 
-export const addTaskReqUrlOpts = async (access_token, company_id, user_id, task_date, task_time, is_completed, time_zone, task_msg) => {
+export const addTaskReqUrlOpts = async (access_token, company_id, { assigned_user, user_id, task_date, task_time, is_completed, time_zone, task_msg }) => {
     const url = `${API_ENDPOINT}/task/lead_465c14d0e99e4972b6b21ffecf3dd691?company_id=${company_id}`;
     const options = {
         method: 'POST',
@@ -41,7 +41,7 @@ export const addTaskReqUrlOpts = async (access_token, company_id, user_id, task_
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            assigned_user: user_id,
+            assigned_user,
             task_date,
             task_time,
             is_completed,
@@ -84,8 +84,8 @@ export const getSingleTaskReqUrlOpts = async (access_token, company_id, task_id)
     return data;
 };
 
-export const updateTaskReqUrlOpts = async (access_token, company_id, task_id, user_id, task_date, task_time, is_completed, time_zone, task_msg) => {
-    const url = `${API_ENDPOINT}/task/lead_465c14d0e99e4972b6b21ffecf3dd691/${task_id}?company_id=${company_id}`;
+export const updateTaskReqUrlOpts = async (access_token, company_id, { assigned_user, id, task_id, user_id, task_date, task_time, is_completed, time_zone, task_msg }) => {
+    const url = `${API_ENDPOINT}/task/lead_465c14d0e99e4972b6b21ffecf3dd691/${id}?company_id=${company_id}`;
     const options = {
         method: 'PUT',
         headers: {
@@ -94,7 +94,7 @@ export const updateTaskReqUrlOpts = async (access_token, company_id, task_id, us
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            assigned_user: user_id,
+            assigned_user,
             task_date,
             task_time,
             is_completed,
@@ -107,8 +107,8 @@ export const updateTaskReqUrlOpts = async (access_token, company_id, task_id, us
     return data;
 };
 
-export const deleteTaskReqUrlOpts = async (access_token, company_id, task_id) => {
-    const url = `${API_ENDPOINT}/task/lead_465c14d0e99e4972b6b21ffecf3dd691/${task_id}?company_id=${company_id}`;
+export const deleteTaskReqUrlOpts = async (access_token, company_id, { id }) => {
+    const url = `${API_ENDPOINT}/task/lead_465c14d0e99e4972b6b21ffecf3dd691/${id}?company_id=${company_id}`;
     const options = {
         method: 'DELETE',
         headers: {

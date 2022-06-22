@@ -7,3 +7,7 @@ export const SET_START_DATE = 'SET_START_DATE';
 export const SET_TASK = 'SET_TASK';
 export const SET_TASKS = 'SET_TASKS';
 export const SHOW_MODAL = 'SHOW_MODAL';
+export const SET_TOKEN = 'SET_TOKEN';
+export const SET_USER_ID = 'SET_USER_ID';
+export const SET_COMPANY_ID = 'SET_COMPANY_ID';
+export const SET_LOADING = 'SET_LOADING';

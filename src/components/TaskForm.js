@@ -51,7 +51,7 @@ const TaskForm = () => {
                 <select
                     id='task_user'
                     value={task?.assigned_user}
-                    onChange={(e) => setTask({ ...task, assigned_user: +e.target.value })}
+                    onChange={(e) => setTask({ ...task, assigned_user: e.target.value })}
                 >
                     {
                         allTasks.map((task, index) => {
